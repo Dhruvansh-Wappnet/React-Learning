@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 const API_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
+const SECRET_KEY = "afnajshfhisahfasjfijnjknjkifhasihfkankfnjafhjjj";
+
 // Create an axios instance
 const apiClient = axios.create({
   baseURL: API_URL,
@@ -15,7 +17,7 @@ const apiClient = axios.create({
 export const useApiClient = () => {
   const token = useSelector((state) => state.loginUser.user?.data?.auth_token);
   console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", token);
-  
+  console.log("SECRET_KEY: ", SECRET_KEY);
 
   // Add a request interceptor
   apiClient.interceptors.request.use(
